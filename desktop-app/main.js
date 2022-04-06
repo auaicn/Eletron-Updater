@@ -1,12 +1,11 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
 
-const logSelectedEnvionmentToConsole = () => {
-  const prefix = "selected enviornment is";
-  if ("enviornment" in process.env) {
-    console.log(prefix, process.env["enviornment"]);
+const assertIfPhaseNotGiven = () => {
+  if ("phase" in process.env) {
+    console.log("selected enviornment is", process.env["phase"]);
   } else {
-    console.log(prefix, "UNKNOWN");
+    throw new Error("phase not given");
   }
 };
 
@@ -14,10 +13,7 @@ const createWindow = () => {
   const browserWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    center: false,
-    resizable: false,
-    movable: false,
-    closable: false,
+    title: "please provide title in index.html",
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
     },
@@ -26,7 +22,7 @@ const createWindow = () => {
   browserWindow.loadFile("index.html");
 };
 
-logSelectedEnvionmentToConsole();
+assertIfPhaseNotGiven();
 
 app.whenReady().then(() => {
   createWindow();

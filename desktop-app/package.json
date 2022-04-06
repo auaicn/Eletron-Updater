@@ -10,6 +10,8 @@
     "electron": "^18.0.2"
   },
   "scripts": {
-    "start": "electron ."
+    "start": "phase=development electron .",
+    "develop": "phase=development electron .",
+    "production": "phase=production electron ."
   }
 }
