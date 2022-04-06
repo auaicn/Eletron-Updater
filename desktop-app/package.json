@@ -6,9 +6,6 @@
   "repository": "https://github.com/auaicn/Eletron-Updater",
   "author": "Kyungho, Park <dev.kyungho@gmail.com>",
   "license": "MIT",
-  "devDependencies": {
-    "electron": "^18.0.2"
-  },
   "scripts": {
     "start": "cross-env phase=development api_key=$dev_key NODE_ENV=development electron .",
     "develop": "cross-env phase=development api_key=$dev_key NODE_ENV=development electron .",
@@ -17,6 +14,10 @@
     "no-phase": "electron ."
   },
   "dependencies": {
-    "cross-env": "^7.0.3"
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "electron": "^18.0.2"
   }
 }
