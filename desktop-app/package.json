@@ -12,6 +12,7 @@
   "scripts": {
     "start": "phase=development electron .",
     "develop": "phase=development electron .",
-    "production": "phase=production electron ."
+    "production": "phase=production electron .",
+    "no-phase": "electron ."
   }
 }
