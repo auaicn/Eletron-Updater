@@ -10,9 +10,10 @@
     "electron": "^18.0.2"
   },
   "scripts": {
-    "start": "phase=development api_key=$dev_key electron .",
-    "develop": "phase=development api_key=$dev_key electron .",
-    "production": "phase=production api_key=$prod_key electron .",
+    "start": "phase=development api_key=$dev_key NODE_ENV=development electron .",
+    "develop": "phase=development api_key=$dev_key NODE_ENV=development electron .",
+    "test": "phase=test api_key=$dev_key NODE_ENV=test electron .",
+    "production": "phase=production api_key=$prod_key NODE_ENV=production electron .",
     "no-phase": "electron ."
   }
 }
