@@ -1,28 +1,32 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
 
-const createWindow = () => {
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,
-  });
-
-  win.loadFile("index.html");
-
-  setTimeout(() => {
-    win.close();
-  }, 5000);
+const logSelectedEnvionmentToConsole = () => {
+  const prefix = "selected enviornment is";
+  if ("enviornment" in process.env) {
+    console.log(prefix, process.env["enviornment"]);
+  } else {
+    console.log(prefix, "UNKNOWN");
+  }
 };
 
-const win2 = new BrowserWindow({
-  width: 800,
-  height: 600,
-  webPreferences: {
-    preload: path.join(__dirname, "preload.js"),
-  },
-});
-console.log("main process is running");
-console.log(__dirname);
+const createWindow = () => {
+  const browserWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    center: false,
+    resizable: false,
+    movable: false,
+    closable: false,
+    webPreferences: {
+      preload: path.join(__dirname, "preload.js"),
+    },
+  });
+
+  browserWindow.loadFile("index.html");
+};
+
+logSelectedEnvionmentToConsole();
 
 app.whenReady().then(() => {
   createWindow();
@@ -35,6 +39,6 @@ app.whenReady().then(() => {
 });
 
 app.on("window-all-closed", () => {
-  // macOS platform 을 darwin 으로 부르는 듯 하다.
+  // macOS platform 을 darwin 이라 부르는 듯 하다.
   if (process.platform !== "darwin") app.quit();
 });
