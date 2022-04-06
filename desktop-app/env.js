@@ -23,4 +23,3 @@ dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 /// phase 에 맞게 가져온 세부적인 환경변수의 validation 을 진행한 후, electron app 으로 진입한다.
 /// 이후로는 일반적인 electron app 의 진행과 동일합니다.
 validateNodeEnviornments();
-require("./main.js");

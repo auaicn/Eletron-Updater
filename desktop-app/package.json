@@ -2,7 +2,7 @@
   "name": "desktop-app",
   "version": "1.0.0",
   "description": "to serve something",
-  "main": "phaseResolver.js",
+  "main": "main.js",
   "repository": "https://github.com/auaicn/Eletron-Updater",
   "author": "Kyungho, Park <dev.kyungho@gmail.com>",
   "license": "MIT",
