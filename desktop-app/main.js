@@ -1,4 +1,4 @@
-require("./env.js");
+require("./env.js");
 const path = require("path");
 const electron = require("electron");
 
