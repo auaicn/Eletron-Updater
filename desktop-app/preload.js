@@ -4,10 +4,11 @@ window.addEventListener("DOMContentLoaded", () => {
     if (element) element.innerText = text;
   };
 
-  for (const dependency of ["chrome", "node", "electron"]) {
-    replaceText(`${dependency}-version`, process.versions[dependency]);
-    if ("phase" in process.env) {
-      replaceText("phase", process.env["phase"]);
-    }
+  for (const versionToKnow of ["chrome", "node", "electron", "package"]) {
+    replaceText(`${versionToKnow}-version`, process.versions[versionToKnow]);
+  }
+
+  if ("phase" in process.env) {
+    replaceText("phase", process.env["phase"]);
   }
 });
