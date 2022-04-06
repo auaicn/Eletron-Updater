@@ -1,25 +1,17 @@
-const { app, BrowserWindow } = require("electron");
 const path = require("path");
-const dotenv = require("dotenv");
+const electron = require("electron");
 
-const assertIfPhaseNotGiven = () => {
-  if ("phase" in process.env) {
-    console.log("selected enviornment is", process.env["phase"]);
-  } else {
-    throw new Error("phase not given");
-  }
-};
+/**
+ * 창을 띄우지 않는 앱도 존재한다. MacOS 의 경우에는, Command+Q 를 통해 끌 수 있는 실제 "애플리케이션" 을 의미한다.
+ * app 객체를 통해 app 의 lifecycle 을 조작할 수 있다.
+ */
+const { app } = electron;
 
-const assertIfAPIKeyNotGiven = () => {
-  if ("api_key" in process.env) {
-    console.log("api_key is", process.env["api_key"]);
-  } else {
-    throw new Error("api_key not given");
-  }
-};
-
-assertIfPhaseNotGiven();
-assertIfAPIKeyNotGiven();
+/**
+ * 실제 창을 의미한다.
+ * 창 하나당, process 를 하나씩 가지는 것으로 보인다. (시스템 활성 상태에서 확인)
+ */
+const { BrowserWindow } = electron;
 
 const createWindow = () => {
   const browserWindow = new BrowserWindow({

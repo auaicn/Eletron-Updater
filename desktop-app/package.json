@@ -2,22 +2,21 @@
   "name": "desktop-app",
   "version": "1.0.0",
   "description": "to serve something",
-  "main": "main.js",
+  "main": "phaseResolver.js",
   "repository": "https://github.com/auaicn/Eletron-Updater",
   "author": "Kyungho, Park <dev.kyungho@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env phase=development api_key=$dev_key NODE_ENV=development electron .",
-    "develop": "cross-env phase=development api_key=$dev_key NODE_ENV=development electron .",
-    "test": "cross-env phase=test api_key=$dev_key NODE_ENV=test electron .",
-    "production": "cross-env phase=production api_key=$prod_key NODE_ENV=production electron .",
+    "start": "cross-env NODE_ENV=development electron .",
+    "develop": "cross-env NODE_ENV=development electron .",
+    "test": "cross-env NODE_ENV=test electron .",
+    "production": "cross-env NODE_ENV=production electron .",
     "no-phase": "electron ."
   },
-  "dependencies": {
-    "dotenv": "^16.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "cross-env": "^7.0.3",
+    "dotenv": "^16.0.0",
     "electron": "^18.0.2"
   }
 }
