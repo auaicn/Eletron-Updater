@@ -9,6 +9,17 @@ const assertIfPhaseNotGiven = () => {
   }
 };
 
+const assertIfAPIKeyNotGiven = () => {
+  if ("api_key" in process.env) {
+    console.log("api_key is", process.env["api_key"]);
+  } else {
+    throw new Error("api_key not given");
+  }
+};
+
+assertIfPhaseNotGiven();
+assertIfAPIKeyNotGiven();
+
 const createWindow = () => {
   const browserWindow = new BrowserWindow({
     width: 800,
@@ -21,8 +32,6 @@ const createWindow = () => {
 
   browserWindow.loadFile("index.html");
 };
-
-assertIfPhaseNotGiven();
 
 app.whenReady().then(() => {
   createWindow();
