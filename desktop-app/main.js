@@ -39,5 +39,6 @@ app.whenReady().then(() => {
 
 app.on("window-all-closed", () => {
   // macOS platform 을 darwin 이라 부르는 듯 하다.
+  // macOS 에서는 모든 창, 윈도우가 종료된다 하더라도, 애플리케이션을 종료하지 않는 경향이 있는데, 이를 보장하기 위한 처리이다.
   if (process.platform !== "darwin") app.quit();
 });
