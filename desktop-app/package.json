@@ -7,20 +7,54 @@
   "author": "Kyungho, Park <dev.kyungho@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env NODE_ENV=development electron .",
+    "start": "electron-forge start",
     "develop": "cross-env NODE_ENV=development electron .",
     "test": "cross-env NODE_ENV=test electron .",
     "production": "cross-env NODE_ENV=production electron .",
-    "no-phase": "electron ."
+    "no-phase": "electron .",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "dependencies": {
     "electron-log": "^4.4.6",
+    "electron-squirrel-startup": "^1.0.0",
     "electron-updater": "^4.6.5"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.63",
+    "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    "@electron-forge/maker-zip": "^6.0.0-beta.63",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.0",
     "electron": "^18.0.2"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "desktop_app"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   }
 }
