@@ -13,7 +13,10 @@
     "production": "cross-env NODE_ENV=production electron .",
     "no-phase": "electron ."
   },
-  "dependencies": {},
+  "dependencies": {
+    "electron-log": "^4.4.6",
+    "electron-updater": "^4.6.5"
+  },
   "devDependencies": {
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.0",
